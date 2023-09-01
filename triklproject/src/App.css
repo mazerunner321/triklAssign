@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+  margin: 20px;
+}
+
+button {
+  margin: 10px;
+}
+
+#generateBtn {
+  padding: 20px 50px;
+  border-radius: 30px;
+  /* background-color: rgb(216, 216, 216); */
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease-in-out;
+  background-color: #e6e6fa;
+  color: #8b008b;
+}
+
+#generateBtn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+input {
+  margin: 20px auto;
+  width: 30%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+#addtextBtn {
+  background-color: #4169e1;
+  color: #ebebeb;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+
+.image-container {
+  position: relative;
+  width: 90%;
+  margin: 20px auto;
+  /* border: 1px solid #353535; */
+  overflow: hidden;
+  display: flex;
+}
+
+.image-container img {
+  width: 70vw;
+  height: 85vh;
+  object-fit: cover;
+}
+
+.text-overlay {
+  position: absolute;
+  background-color: rgba(92, 92, 92, 0.8);
+  padding: 5px 15px;
+  border-radius: 10px;
+  cursor: move;
+  overflow: hidden;
+  font-size: 20px;
+}
