@@ -1,4 +1,4 @@
-# Image Text Overlay React App
+# Drag Text
 
 A React.js application that allows users to fetch an image from the Unsplash API and add movable text overlays onto the image.
 
