@@ -1,13 +1,21 @@
-# Drag Text
+# Drag and Resize Text
 
-A React.js application that allows users to fetch an image from the Unsplash API and add movable text overlays onto the image.
+A React.js application that allows users to fetch a random image from the Unsplash API and add movable and editable text overlays to the image with customizable text positions and sizes.
+
+#### Landing Page
+
+![Landing Page](https://i.ibb.co/N3PXtW5/Screenshot-2023-09-04-192000.png)
+
+#### Draggable and Editable TextBox
+
+![Drag and edit the text](https://i.ibb.co/WHMYMKv/Screenshot-2023-09-04-191913.png)
 
 ## Table of Contents
 
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
+- [Features](#features)
 
 ## Getting Started
 
@@ -26,3 +34,11 @@ Before you begin, ensure you have the following installed:
 
    ```bash
    git clone https://github.com/yourusername/your-repo.git
+   ```
+
+## Features
+
+- Fetch images from the Unsplash API.
+- Add movable and resizable text overlays to images.
+- Customize text content, position, and size.
+- Edit text content directly on the text overlay.
