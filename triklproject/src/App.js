@@ -1,9 +1,8 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import Draggable from "react-draggable";
 import { ResizableBox } from "react-resizable";
+import "./App.css";
 
 function App() {
   const [imageData, setImageData] = useState(null);
@@ -22,7 +21,6 @@ function App() {
         }
       );
 
-      // console.log(response.data);
       setImageData(response.data);
     } catch (error) {
       console.error("Error:", error);
@@ -34,13 +32,23 @@ function App() {
       setTextOverlays([
         ...textOverlays,
         {
+          id: Date.now(),
           text,
-          position: { x: 5, y: 5 },
+          position: { x: 50, y: 50 },
           size: { width: 150, height: 50 },
         },
       ]);
       setText("");
     }
+  };
+
+  const handleTextChange = (e, id) => {
+    const updatedText = e.target.innerText;
+    setTextOverlays((prevOverlays) =>
+      prevOverlays.map((overlay) =>
+        overlay.id === id ? { ...overlay, text: updatedText } : overlay
+      )
+    );
   };
 
   return (
@@ -49,8 +57,6 @@ function App() {
         Generate Random Image
       </button>
       <br />
-
-      {/* Entering Text */}
       <input
         type="text"
         placeholder="Enter Text..."
@@ -61,25 +67,40 @@ function App() {
         Add Text
       </button>
       <br />
-
       <div className="image-container" ref={imageRef}>
-        {imageData && <img src={imageData.urls.regular} alt="randomImage" />}
-        {textOverlays.map((overlay, i) => (
-          <Draggable key={i} bounds="parent" defaultPosition={overlay.position}>
+        {imageData && (
+          <img src={imageData.urls.regular} alt="randomImage" width="100%" />
+        )}
+        {textOverlays.map((overlay) => (
+          <Draggable
+            key={overlay.id}
+            bounds="parent"
+            defaultPosition={overlay.position}
+          >
             <ResizableBox
               width={overlay.size.width}
               height={overlay.size.height}
-              onResizeStop={(e, data) => {
+              onResize={(e, data) => {
                 const newSize = {
                   width: data.size.width,
                   height: data.size.height,
                 };
-                const newOverlays = [...textOverlays];
-                newOverlays[i].size = newSize;
-                setTextOverlays(newOverlays);
+                setTextOverlays((prevOverlays) =>
+                  prevOverlays.map((prevOverlay) =>
+                    prevOverlay.id === overlay.id
+                      ? { ...prevOverlay, size: newSize }
+                      : prevOverlay
+                  )
+                );
               }}
             >
-              <div className="text-overlay">{overlay.text}</div>
+              <div
+                className="text-overlay"
+                contentEditable
+                onBlur={(e) => handleTextChange(e, overlay.id)}
+              >
+                {overlay.text}
+              </div>
             </ResizableBox>
           </Draggable>
         ))}
