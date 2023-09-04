@@ -2,7 +2,11 @@
 
 A React.js application that allows users to fetch a random image from the Unsplash API and add movable and editable text overlays to the image with customizable text positions and sizes.
 
+#### Landing Page
+
 ![Landing Page](https://i.ibb.co/N3PXtW5/Screenshot-2023-09-04-192000.png)
+
+#### Draggable and Editable TextBox
 
 ![Drag and edit the text](https://i.ibb.co/WHMYMKv/Screenshot-2023-09-04-191913.png)
 
