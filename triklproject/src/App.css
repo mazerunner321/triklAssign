@@ -62,9 +62,7 @@ input {
   background-color: rgba(73, 73, 73, 0.7);
   border: 1px dashed #ffffff;
   resize: both;
-  /* Enable resizing */
   overflow: auto;
-  /* Enable scrolling when the content overflows */
   padding: 5px;
   cursor: pointer;
 }
